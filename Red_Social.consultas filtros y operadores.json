@@ -1,0 +1,41 @@
+[{
+  "_id": {
+    "$oid": "6804005be801648dff302e01"
+  },
+  "operation": "find",
+  "filter": {
+    "createdAt": {
+      "$gte": {
+        "$date": "2025-03-01T00:00:00.000Z"
+      }
+    }
+  }
+},
+{
+  "_id": {
+    "$oid": "6804005be801648dff302e02"
+  },
+  "operation": "find",
+  "filter": {
+    "bio": {
+      "$regularExpression": {
+        "pattern": "interest",
+        "options": "i"
+      }
+    }
+  }
+},
+{
+  "_id": {
+    "$oid": "6804005be801648dff302e03"
+  },
+  "operation": "find",
+  "filter": {
+    "email": {
+      "$regularExpression": {
+        "pattern": "@gmail\\.com$",
+        "options": "i"
+      }
+    }
+  }
+}]

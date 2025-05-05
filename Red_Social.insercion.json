@@ -1,0 +1,19 @@
+[{
+  "_id": {
+    "$oid": "68040023e801648dff302dfe"
+  },
+  "operation": "insert",
+  "collection": "users",
+  "document": {
+    "username": "dennishamilton",
+    "email": "paul45@yahoo.com",
+    "passwordHash": "fc575cc877679d62bee22d5e6cf616e7b806a64877d40821b8f6e33031b4dcff",
+    "bio": "Trade support answer wish near central simply.",
+    "profilePic": "https://placeimg.com/112/383/any",
+    "followers": [],
+    "following": [],
+    "createdAt": {
+      "$date": "2025-03-25T16:20:12.000Z"
+    }
+  }
+}]

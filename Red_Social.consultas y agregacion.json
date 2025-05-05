@@ -1,0 +1,60 @@
+[{
+  "_id": {
+    "$oid": "6804008ae801648dff302e08"
+  },
+  "operation": "aggregate",
+  "pipeline": [
+    {
+      "$count": "totalUsers"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6804008ae801648dff302e09"
+  },
+  "operation": "aggregate",
+  "pipeline": [
+    {
+      "$group": {
+        "_id": {
+          "$arrayElemAt": [
+            {
+              "$split": [
+                "$email",
+                "@"
+              ]
+            },
+            1
+          ]
+        },
+        "count": {
+          "$sum": 1
+        }
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6804008ae801648dff302e0a"
+  },
+  "operation": "aggregate",
+  "pipeline": [
+    {
+      "$project": {
+        "bioLength": {
+          "$strLenCP": "$bio"
+        }
+      }
+    },
+    {
+      "$group": {
+        "_id": null,
+        "averageBioLength": {
+          "$avg": "$bioLength"
+        }
+      }
+    }
+  ]
+}]
