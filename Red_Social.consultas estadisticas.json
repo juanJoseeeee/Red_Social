@@ -1,0 +1,372 @@
+[{
+  "_id": {
+    "$oid": "68180452eb0bdeac3c602833"
+  },
+  "": "// Base de datos y colección de ejemplo"
+},
+{
+  "_id": {
+    "$oid": "68180453eb0bdeac3c602834"
+  },
+  "": "use redSocialDB;"
+},
+{
+  "_id": {
+    "$oid": "68180453eb0bdeac3c602835"
+  }
+},
+{
+  "_id": {
+    "$oid": "68180453eb0bdeac3c602836"
+  },
+  "": "// Supongamos una colección llamada \"usuarios\" con documentos como este:"
+},
+{
+  "_id": {
+    "$oid": "68180453eb0bdeac3c602837"
+  },
+  "": "// {"
+},
+{
+  "_id": {
+    "$oid": "68180453eb0bdeac3c602838"
+  },
+  "": "//   \"nombre\": \"Juan Pérez\""
+},
+{
+  "_id": {
+    "$oid": "68180453eb0bdeac3c602839"
+  },
+  "": "//   \"correo\": \"juan.perez@email.com\""
+},
+{
+  "_id": {
+    "$oid": "68180453eb0bdeac3c60283a"
+  },
+  "": "//   \"pais\": \"Colombia\""
+},
+{
+  "_id": {
+    "$oid": "68180453eb0bdeac3c60283b"
+  },
+  "": "//   \"edad\": 25"
+},
+{
+  "_id": {
+    "$oid": "68180453eb0bdeac3c60283c"
+  },
+  "": "//   \"genero\": \"Masculino\""
+},
+{
+  "_id": {
+    "$oid": "68180453eb0bdeac3c60283d"
+  },
+  "": "//   \"numero_amigos\": 320"
+},
+{
+  "_id": {
+    "$oid": "68180453eb0bdeac3c60283e"
+  },
+  "": "//   \"publicaciones\": 78"
+},
+{
+  "_id": {
+    "$oid": "68180453eb0bdeac3c60283f"
+  },
+  "": "// }"
+},
+{
+  "_id": {
+    "$oid": "68180453eb0bdeac3c602840"
+  }
+},
+{
+  "_id": {
+    "$oid": "68180453eb0bdeac3c602841"
+  },
+  "": "// 1. Contar el total de usuarios"
+},
+{
+  "_id": {
+    "$oid": "68180453eb0bdeac3c602842"
+  },
+  "": "db.usuarios.aggregate(["
+},
+{
+  "_id": {
+    "$oid": "68180453eb0bdeac3c602843"
+  },
+  "": "  {"
+},
+{
+  "_id": {
+    "$oid": "68180453eb0bdeac3c602844"
+  },
+  "": "    $count: \"total_usuarios\""
+},
+{
+  "_id": {
+    "$oid": "68180453eb0bdeac3c602845"
+  },
+  "": "  }"
+},
+{
+  "_id": {
+    "$oid": "68180453eb0bdeac3c602846"
+  },
+  "": "]);"
+},
+{
+  "_id": {
+    "$oid": "68180453eb0bdeac3c602847"
+  }
+},
+{
+  "_id": {
+    "$oid": "68180453eb0bdeac3c602848"
+  },
+  "": "// 2. Calcular el número total de publicaciones realizadas por todos los usuarios"
+},
+{
+  "_id": {
+    "$oid": "68180453eb0bdeac3c602849"
+  },
+  "": "db.usuarios.aggregate(["
+},
+{
+  "_id": {
+    "$oid": "68180453eb0bdeac3c60284a"
+  },
+  "": "  {"
+},
+{
+  "_id": {
+    "$oid": "68180453eb0bdeac3c60284b"
+  },
+  "": "    $group: {"
+},
+{
+  "_id": {
+    "$oid": "68180453eb0bdeac3c60284c"
+  },
+  "": "      _id: null"
+},
+{
+  "_id": {
+    "$oid": "68180453eb0bdeac3c60284d"
+  },
+  "": "      total_publicaciones: { $sum: \"$publicaciones\" }"
+},
+{
+  "_id": {
+    "$oid": "68180453eb0bdeac3c60284e"
+  },
+  "": "    }"
+},
+{
+  "_id": {
+    "$oid": "68180453eb0bdeac3c60284f"
+  },
+  "": "  }"
+},
+{
+  "_id": {
+    "$oid": "68180453eb0bdeac3c602850"
+  },
+  "": "]);"
+},
+{
+  "_id": {
+    "$oid": "68180453eb0bdeac3c602851"
+  }
+},
+{
+  "_id": {
+    "$oid": "68180453eb0bdeac3c602852"
+  },
+  "": "// 3. Calcular el promedio de publicaciones por usuario"
+},
+{
+  "_id": {
+    "$oid": "68180453eb0bdeac3c602853"
+  },
+  "": "db.usuarios.aggregate(["
+},
+{
+  "_id": {
+    "$oid": "68180453eb0bdeac3c602854"
+  },
+  "": "  {"
+},
+{
+  "_id": {
+    "$oid": "68180453eb0bdeac3c602855"
+  },
+  "": "    $group: {"
+},
+{
+  "_id": {
+    "$oid": "68180453eb0bdeac3c602856"
+  },
+  "": "      _id: null"
+},
+{
+  "_id": {
+    "$oid": "68180453eb0bdeac3c602857"
+  },
+  "": "      promedio_publicaciones: { $avg: \"$publicaciones\" }"
+},
+{
+  "_id": {
+    "$oid": "68180453eb0bdeac3c602858"
+  },
+  "": "    }"
+},
+{
+  "_id": {
+    "$oid": "68180453eb0bdeac3c602859"
+  },
+  "": "  }"
+},
+{
+  "_id": {
+    "$oid": "68180453eb0bdeac3c60285a"
+  },
+  "": "]);"
+},
+{
+  "_id": {
+    "$oid": "68180453eb0bdeac3c60285b"
+  }
+},
+{
+  "_id": {
+    "$oid": "68180453eb0bdeac3c60285c"
+  },
+  "": "// 4. Agrupar usuarios por país y contar cuántos hay en cada uno"
+},
+{
+  "_id": {
+    "$oid": "68180453eb0bdeac3c60285d"
+  },
+  "": "db.usuarios.aggregate(["
+},
+{
+  "_id": {
+    "$oid": "68180453eb0bdeac3c60285e"
+  },
+  "": "  {"
+},
+{
+  "_id": {
+    "$oid": "68180453eb0bdeac3c60285f"
+  },
+  "": "    $group: {"
+},
+{
+  "_id": {
+    "$oid": "68180453eb0bdeac3c602860"
+  },
+  "": "      _id: \"$pais\""
+},
+{
+  "_id": {
+    "$oid": "68180453eb0bdeac3c602861"
+  },
+  "": "      cantidad_usuarios: { $sum: 1 }"
+},
+{
+  "_id": {
+    "$oid": "68180453eb0bdeac3c602862"
+  },
+  "": "    }"
+},
+{
+  "_id": {
+    "$oid": "68180453eb0bdeac3c602863"
+  },
+  "": "  }"
+},
+{
+  "_id": {
+    "$oid": "68180453eb0bdeac3c602864"
+  },
+  "": "  {"
+},
+{
+  "_id": {
+    "$oid": "68180453eb0bdeac3c602865"
+  },
+  "": "    $sort: { cantidad_usuarios: -1 }"
+},
+{
+  "_id": {
+    "$oid": "68180453eb0bdeac3c602866"
+  },
+  "": "  }"
+},
+{
+  "_id": {
+    "$oid": "68180453eb0bdeac3c602867"
+  },
+  "": "]);"
+},
+{
+  "_id": {
+    "$oid": "68180453eb0bdeac3c602868"
+  }
+},
+{
+  "_id": {
+    "$oid": "68180453eb0bdeac3c602869"
+  },
+  "": "// 5. Calcular edad promedio por género"
+},
+{
+  "_id": {
+    "$oid": "68180453eb0bdeac3c60286a"
+  },
+  "": "db.usuarios.aggregate(["
+},
+{
+  "_id": {
+    "$oid": "68180453eb0bdeac3c60286b"
+  },
+  "": "  {"
+},
+{
+  "_id": {
+    "$oid": "68180453eb0bdeac3c60286c"
+  },
+  "": "    $group: {"
+},
+{
+  "_id": {
+    "$oid": "68180453eb0bdeac3c60286d"
+  },
+  "": "      _id: \"$genero\""
+},
+{
+  "_id": {
+    "$oid": "68180453eb0bdeac3c60286e"
+  },
+  "": "      edad_promedio: { $avg: \"$edad\" }"
+},
+{
+  "_id": {
+    "$oid": "68180453eb0bdeac3c60286f"
+  },
+  "": "    }"
+},
+{
+  "_id": {
+    "$oid": "68180453eb0bdeac3c602870"
+  },
+  "": "  }"
+},
+{
+  "_id": {
+    "$oid": "68180453eb0bdeac3c602871"
+  },
+  "": "]);"
+}]
